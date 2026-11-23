@@ -25,9 +25,9 @@ body {
     overflow-x: hidden;
 }
 
-/* إدارة الشاشات */
+/* إدارة الشاشات (إظهار وإخفاء) */
 .screen {
-    display: none; 
+    display: none; /* مخفية في البداية */
     width: 100%;
     max-width: 500px;
     background-color: var(--card-bg);
@@ -40,9 +40,10 @@ body {
 }
 
 .screen.active {
-    display: block;
+    display: block !important; /* الشاشة النشطة فقط هي اللي تظهر */
 }
 
+/* حركة الظهور */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -206,35 +207,26 @@ input:focus {
 }
 
 /* تنسيقات صفحة "عن النادي" */
-.about-screen {
-    max-height: 90vh; /* عشان متملاش الشاشة كلها */
-    display: flex;
+.about-screen.active {
+    display: flex !important; /* عشان نضمن إنها تظهر بس لما تكون نشطة */
     flex-direction: column;
+    max-height: 90vh; 
 }
 
 .about-content {
     text-align: right;
-    overflow-y: auto; /* عمل سكرول داخلي للنص الطويل */
+    overflow-y: auto; 
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 15px;
     margin-bottom: 10px;
-    /* تخصيص شكل شريط التمرير */
     scrollbar-width: thin;
     scrollbar-color: var(--primary-green) var(--card-bg);
 }
 
-/* تخصيص شريط التمرير لشاشات الويب */
-.about-content::-webkit-scrollbar {
-    width: 6px;
-}
-.about-content::-webkit-scrollbar-track {
-    background: var(--card-bg);
-}
-.about-content::-webkit-scrollbar-thumb {
-    background-color: var(--primary-green);
-    border-radius: 10px;
-}
+.about-content::-webkit-scrollbar { width: 6px; }
+.about-content::-webkit-scrollbar-track { background: var(--card-bg); }
+.about-content::-webkit-scrollbar-thumb { background-color: var(--primary-green); border-radius: 10px; }
 
 .about-content h3 {
     color: var(--primary-green);
@@ -255,6 +247,4 @@ input:focus {
     margin-bottom: 15px;
 }
 
-.about-content strong {
-    color: #fff;
-    }
+.about-content strong { color: #fff; }
