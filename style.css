@@ -16,7 +16,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
-    font-family: 'Cairo', sans-serif; /* الخط العربي الرسمي */
+    font-family: 'Cairo', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,25 +25,24 @@ body {
     overflow-x: hidden;
 }
 
-/* إدارة الشاشات (إظهار وإخفاء) */
+/* إدارة الشاشات */
 .screen {
-    display: none; /* مخفية في البداية */
+    display: none; 
     width: 100%;
     max-width: 500px;
     background-color: var(--card-bg);
     padding: 40px 30px;
     border-radius: 15px;
     border: 1px solid #222;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(49, 127, 69, 0.1); /* لمعة خضراء خفيفة */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(49, 127, 69, 0.1);
     text-align: center;
     animation: fadeIn 0.5s ease-in-out;
 }
 
 .screen.active {
-    display: block; /* الشاشة النشطة فقط */
+    display: block;
 }
 
-/* حركة الظهور */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -66,7 +65,7 @@ h1 { font-size: 24px; }
 h2 { font-size: 22px; color: var(--primary-green); }
 
 .english-text {
-    font-family: 'Montserrat', sans-serif; /* الخط الإنجليزي */
+    font-family: 'Montserrat', sans-serif;
     color: var(--text-muted);
     font-size: 14px;
     margin-bottom: 30px;
@@ -184,6 +183,9 @@ input:focus {
     margin-top: 25px;
     font-size: 15px;
     text-decoration: underline;
+    display: block;
+    width: 100%;
+    text-align: center;
 }
 
 .btn-back:hover { color: white; }
@@ -202,3 +204,57 @@ input:focus {
     margin: 0 auto 20px auto;
     border: 2px solid var(--primary-green);
 }
+
+/* تنسيقات صفحة "عن النادي" */
+.about-screen {
+    max-height: 90vh; /* عشان متملاش الشاشة كلها */
+    display: flex;
+    flex-direction: column;
+}
+
+.about-content {
+    text-align: right;
+    overflow-y: auto; /* عمل سكرول داخلي للنص الطويل */
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    /* تخصيص شكل شريط التمرير */
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-green) var(--card-bg);
+}
+
+/* تخصيص شريط التمرير لشاشات الويب */
+.about-content::-webkit-scrollbar {
+    width: 6px;
+}
+.about-content::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+.about-content::-webkit-scrollbar-thumb {
+    background-color: var(--primary-green);
+    border-radius: 10px;
+}
+
+.about-content h3 {
+    color: var(--primary-green);
+    font-size: 17px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.about-content p, .about-content li {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+.about-content ul {
+    padding-right: 20px;
+    margin-bottom: 15px;
+}
+
+.about-content strong {
+    color: #fff;
+    }
