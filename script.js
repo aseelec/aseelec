@@ -1,39 +1,41 @@
-// دالة التنقل بين الشاشات
 function navigateTo(screenId) {
-    // إخفاء كل الشاشات
+    // إجبار المتصفح على إخفاء كل الشاشات
     const screens = document.querySelectorAll('.screen');
     screens.forEach(screen => {
+        screen.style.display = 'none'; 
         screen.classList.remove('active');
     });
 
-    // إظهار الشاشة المطلوبة
+    // إظهار الشاشة المطلوبة فقط
     const targetScreen = document.getElementById(screenId);
     if (targetScreen) {
+        // لو الشاشة دي "عن النادي" بنخليها flex عشان السكرول يشتغل، غير كده block عادي
+        if (screenId === 'screen-about') {
+            targetScreen.style.display = 'flex';
+        } else {
+            targetScreen.style.display = 'block';
+        }
         targetScreen.classList.add('active');
     }
     
-    // التمرير لأعلى الصفحة عند التنقل
     window.scrollTo(0, 0);
 }
 
-// التعامل مع إرسال الاستمارات (Formspree AJAX)
+// كود الإرسال (زي ما هو)
 const formspreeEndpoint = "https://formspree.io/f/xljbonwo";
 
 function handleFormSubmit(event) {
-    event.preventDefault(); // منع إعادة تحميل الصفحة
+    event.preventDefault(); 
     
     const form = event.target;
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerText;
     
-    // تغيير نص الزرار للدلالة على جاري الإرسال
     submitBtn.innerText = "جاري الإرسال...";
     submitBtn.disabled = true;
 
-    // جمع بيانات الاستمارة
     const formData = new FormData(form);
 
-    // إرسال البيانات في الخلفية
     fetch(formspreeEndpoint, {
         method: 'POST',
         body: formData,
@@ -43,11 +45,9 @@ function handleFormSubmit(event) {
     })
     .then(response => {
         if (response.ok) {
-            // نجاح الإرسال: الانتقال لصفحة الشكر
-            form.reset(); // تفريغ الاستمارة
+            form.reset();
             navigateTo('screen-success');
         } else {
-            // فشل الإرسال
             alert("حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.");
         }
     })
@@ -55,14 +55,15 @@ function handleFormSubmit(event) {
         alert("تعذر الاتصال بالشبكة، يرجى التحقق من الإنترنت.");
     })
     .finally(() => {
-        // إعادة الزرار لحالته الطبيعية
         submitBtn.innerText = originalText;
         submitBtn.disabled = false;
     });
 }
 
-// ربط الاستمارات بدالة الإرسال
+// عند فتح الموقع لأول مرة، هنخلي الشاشة الرئيسية هي اللي تظهر ونخفي الباقي
 document.addEventListener("DOMContentLoaded", () => {
+    navigateTo('screen-home'); // السطر ده هو اللي هيخفي باقي الصفحات فوراً
+
     const formEfootball = document.getElementById('form-efootball');
     const formChess = document.getElementById('form-chess');
 
