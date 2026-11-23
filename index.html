@@ -2,13 +2,88 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Aseel Esports</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aseel Esports | نادي أصيل</title>
+    <!-- استدعاء خطوط جوجل الرسمية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>مرحباً بكم في Aseel Esports</h1>
-    <p>جاري تجهيز الموقع...</p>
+
+    <!-- الشاشة 1: الرئيسية -->
+    <div id="screen-home" class="screen active">
+        <img src="logopng.png" alt="Aseel Esports Logo" class="logo">
+        <h1>مرحباً بك في الموقع الإلكتروني الرسمي<br>لنادي أصيل للرياضات الإلكترونية</h1>
+        <p class="english-text">Welcome to Aseel Esports Club Official Website</p>
+        <button class="btn-main" onclick="navigateTo('screen-activities')">قدّم الآن | Apply Now</button>
+    </div>
+
+    <!-- الشاشة 2: اختيار النشاط -->
+    <div id="screen-activities" class="screen">
+        <h2>أي نشاط تريد الانضمام إليه؟</h2>
+        <p class="english-text">Which activity do you want to join?</p>
+        <div class="buttons-group">
+            <button class="btn-game" onclick="navigateTo('screen-efootball')">
+                <span>eFootball</span>
+                <small>انضم لفريق كرة القدم</small>
+            </button>
+            <button class="btn-game" onclick="navigateTo('screen-chess')">
+                <span>Chess</span>
+                <small>انضم لفريق الشطرنج</small>
+            </button>
+        </div>
+        <button class="btn-back" onclick="navigateTo('screen-home')">رجوع</button>
+    </div>
+
+    <!-- الشاشة 3: استمارة eFootball -->
+    <div id="screen-efootball" class="screen">
+        <h2>استمارة الانضمام - eFootball</h2>
+        <form id="form-efootball">
+            <label>الاسم الثلاثي:</label>
+            <input type="text" name="name" required placeholder="اكتب اسمك الثلاثي">
+            
+            <label>رقم قوة فريق الأحلام:</label>
+            <input type="number" name="team_strength" required placeholder="مثال: 3200">
+            
+            <label>كم عام قضيت في لعبة eFootball:</label>
+            <input type="text" name="experience_years" required placeholder="مثال: 3 سنوات">
+            
+            <label>طريقة تواصل (واتساب دولي أو تيليجرام):</label>
+            <input type="text" name="contact" required placeholder="مثال: +966... أو @username">
+            
+            <button type="submit" class="btn-submit">إرسال الطلب</button>
+        </form>
+        <button class="btn-back" onclick="navigateTo('screen-activities')">رجوع</button>
+    </div>
+
+    <!-- الشاشة 4: استمارة الشطرنج -->
+    <div id="screen-chess" class="screen">
+        <h2>استمارة الانضمام - Chess</h2>
+        <form id="form-chess">
+            <label>الاسم الثلاثي:</label>
+            <input type="text" name="name" required placeholder="اكتب اسمك الثلاثي">
+            
+            <label>تقييمك على chess.com أو lichess:</label>
+            <input type="text" name="rating" required placeholder="مثال: 1500 ELO">
+            
+            <label>طريقة تواصل (واتساب دولي أو تيليجرام):</label>
+            <input type="text" name="contact" required placeholder="مثال: +966... أو @username">
+            
+            <button type="submit" class="btn-submit">إرسال الطلب</button>
+        </form>
+        <button class="btn-back" onclick="navigateTo('screen-activities')">رجوع</button>
+    </div>
+
+    <!-- الشاشة 5: صفحة الشكر -->
+    <div id="screen-success" class="screen">
+        <div class="success-icon">✓</div>
+        <h2>شكراً لك!</h2>
+        <p>سنكون سعيدين إذا نجح انضمامك إلينا.<br>سيتم التواصل معك قريباً.</p>
+        <button class="btn-main" onclick="navigateTo('screen-home')">العودة للرئيسية</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
-</html>
+    </html>
