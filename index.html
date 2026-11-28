@@ -32,7 +32,6 @@
                 <span>Chess</span>
                 <small>انضم لفريق الشطرنج</small>
             </button>
-            <!-- زرار اللعبة الجديدة -->
             <button class="btn-game" onclick="navigateTo('screen-mlbb')">
                 <span>Mobile Legends</span>
                 <small>انضم لفريق موبايل ليجندز</small>
@@ -47,12 +46,22 @@
         <form id="form-efootball">
             <label>الاسم الثلاثي:</label>
             <input type="text" name="name" required placeholder="اكتب اسمك الثلاثي">
+            
+            <label>العمر:</label>
+            <input type="number" name="age" required placeholder="مثال: 20">
+            
+            <label>الجنسية:</label>
+            <input type="text" name="nationality" required placeholder="مثال: سوداني">
+
             <label>رقم قوة فريق الأحلام:</label>
             <input type="number" name="team_strength" required placeholder="مثال: 3200">
+            
             <label>كم عام قضيت في لعبة eFootball:</label>
             <input type="text" name="experience_years" required placeholder="مثال: 3 سنوات">
+            
             <label>طريقة تواصل (واتساب دولي أو تيليجرام):</label>
             <input type="text" name="contact" required placeholder="مثال: +966... أو @username">
+            
             <button type="submit" class="btn-submit">إرسال الطلب</button>
         </form>
         <button class="btn-back" onclick="navigateTo('screen-activities')">رجوع</button>
@@ -64,10 +73,19 @@
         <form id="form-chess">
             <label>الاسم الثلاثي:</label>
             <input type="text" name="name" required placeholder="اكتب اسمك الثلاثي">
+            
+            <label>العمر:</label>
+            <input type="number" name="age" required placeholder="مثال: 20">
+            
+            <label>الجنسية:</label>
+            <input type="text" name="nationality" required placeholder="مثال: سوداني">
+
             <label>تقييمك على chess.com أو lichess:</label>
             <input type="text" name="rating" required placeholder="مثال: 1500 ELO">
+            
             <label>طريقة تواصل (واتساب دولي أو تيليجرام):</label>
             <input type="text" name="contact" required placeholder="مثال: +966... أو @username">
+            
             <button type="submit" class="btn-submit">إرسال الطلب</button>
         </form>
         <button class="btn-back" onclick="navigateTo('screen-activities')">رجوع</button>
