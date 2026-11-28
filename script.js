@@ -1,15 +1,12 @@
 function navigateTo(screenId) {
-    // إجبار المتصفح على إخفاء كل الشاشات
     const screens = document.querySelectorAll('.screen');
     screens.forEach(screen => {
         screen.style.display = 'none'; 
         screen.classList.remove('active');
     });
 
-    // إظهار الشاشة المطلوبة فقط
     const targetScreen = document.getElementById(screenId);
     if (targetScreen) {
-        // لو الشاشة دي "عن النادي" بنخليها flex عشان السكرول يشتغل، غير كده block عادي
         if (screenId === 'screen-about') {
             targetScreen.style.display = 'flex';
         } else {
@@ -21,7 +18,6 @@ function navigateTo(screenId) {
     window.scrollTo(0, 0);
 }
 
-// كود الإرسال (زي ما هو)
 const formspreeEndpoint = "https://formspree.io/f/xljbonwo";
 
 function handleFormSubmit(event) {
@@ -39,9 +35,7 @@ function handleFormSubmit(event) {
     fetch(formspreeEndpoint, {
         method: 'POST',
         body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
     })
     .then(response => {
         if (response.ok) {
@@ -60,13 +54,15 @@ function handleFormSubmit(event) {
     });
 }
 
-// عند فتح الموقع لأول مرة، هنخلي الشاشة الرئيسية هي اللي تظهر ونخفي الباقي
 document.addEventListener("DOMContentLoaded", () => {
-    navigateTo('screen-home'); // السطر ده هو اللي هيخفي باقي الصفحات فوراً
+    navigateTo('screen-home'); 
 
+    // ربط الاستمارات التلاتة بدالة الإرسال
     const formEfootball = document.getElementById('form-efootball');
     const formChess = document.getElementById('form-chess');
+    const formMlbb = document.getElementById('form-mlbb'); // الاستمارة الجديدة
 
     if (formEfootball) formEfootball.addEventListener('submit', handleFormSubmit);
     if (formChess) formChess.addEventListener('submit', handleFormSubmit);
+    if (formMlbb) formMlbb.addEventListener('submit', handleFormSubmit); // تفعيلها
 });
