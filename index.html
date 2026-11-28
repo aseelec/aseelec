@@ -32,6 +32,11 @@
                 <span>Chess</span>
                 <small>انضم لفريق الشطرنج</small>
             </button>
+            <!-- زرار اللعبة الجديدة -->
+            <button class="btn-game" onclick="navigateTo('screen-mlbb')">
+                <span>Mobile Legends</span>
+                <small>انضم لفريق موبايل ليجندز</small>
+            </button>
         </div>
         <button class="btn-back" onclick="navigateTo('screen-home')">رجوع</button>
     </div>
@@ -42,16 +47,12 @@
         <form id="form-efootball">
             <label>الاسم الثلاثي:</label>
             <input type="text" name="name" required placeholder="اكتب اسمك الثلاثي">
-            
             <label>رقم قوة فريق الأحلام:</label>
             <input type="number" name="team_strength" required placeholder="مثال: 3200">
-            
             <label>كم عام قضيت في لعبة eFootball:</label>
             <input type="text" name="experience_years" required placeholder="مثال: 3 سنوات">
-            
             <label>طريقة تواصل (واتساب دولي أو تيليجرام):</label>
             <input type="text" name="contact" required placeholder="مثال: +966... أو @username">
-            
             <button type="submit" class="btn-submit">إرسال الطلب</button>
         </form>
         <button class="btn-back" onclick="navigateTo('screen-activities')">رجوع</button>
@@ -63,9 +64,43 @@
         <form id="form-chess">
             <label>الاسم الثلاثي:</label>
             <input type="text" name="name" required placeholder="اكتب اسمك الثلاثي">
-            
             <label>تقييمك على chess.com أو lichess:</label>
             <input type="text" name="rating" required placeholder="مثال: 1500 ELO">
+            <label>طريقة تواصل (واتساب دولي أو تيليجرام):</label>
+            <input type="text" name="contact" required placeholder="مثال: +966... أو @username">
+            <button type="submit" class="btn-submit">إرسال الطلب</button>
+        </form>
+        <button class="btn-back" onclick="navigateTo('screen-activities')">رجوع</button>
+    </div>
+
+    <!-- الشاشة 5: استمارة Mobile Legends -->
+    <div id="screen-mlbb" class="screen">
+        <h2>استمارة الانضمام - MLBB</h2>
+        <form id="form-mlbb">
+            <label>الاسم الثلاثي:</label>
+            <input type="text" name="name" required placeholder="اكتب اسمك الثلاثي">
+            
+            <label>العمر:</label>
+            <input type="number" name="age" required placeholder="مثال: 20">
+            
+            <label>الجنسية:</label>
+            <input type="text" name="nationality" required placeholder="مثال: سوداني">
+            
+            <label>الـ ID في اللعبة:</label>
+            <input type="text" name="game_id" required placeholder="مثال: 12345678 (1234)">
+            
+            <label>أعلى رانك وصلت له:</label>
+            <input type="text" name="highest_rank" required placeholder="مثال: Mythic Glory">
+            
+            <label>مركزك في اللعبة:</label>
+            <select name="role" required>
+                <option value="" disabled selected>اختر مركزك...</option>
+                <option value="Jungler">Jungler</option>
+                <option value="Roamer">Roamer</option>
+                <option value="GOLD">GOLD</option>
+                <option value="EXP">EXP</option>
+                <option value="MID">MID</option>
+            </select>
             
             <label>طريقة تواصل (واتساب دولي أو تيليجرام):</label>
             <input type="text" name="contact" required placeholder="مثال: +966... أو @username">
@@ -75,32 +110,27 @@
         <button class="btn-back" onclick="navigateTo('screen-activities')">رجوع</button>
     </div>
 
-    <!-- الشاشة 5: صفحة الشكر -->
+    <!-- الشاشة 6: صفحة الشكر -->
     <div id="screen-success" class="screen">
         <div class="success-icon">✓</div>
         <h2>شكراً لك!</h2>
         <p>سنكون سعداء إذا نجح انضمامك إلينا.</p>
-        
         <button class="btn-main" style="margin-top: 30px;" onclick="navigateTo('screen-about')">عن النادي</button>
         <button class="btn-back" onclick="navigateTo('screen-home')">العودة للرئيسية</button>
     </div>
 
-    <!-- الشاشة 6: عن النادي -->
+    <!-- الشاشة 7: عن النادي -->
     <div id="screen-about" class="screen about-screen">
         <h2>عن نادي أصيل للرياضات الإلكترونية</h2>
         <p class="english-text">ASEEL Esports Club (ASEEL EC)</p>
-        
         <div class="about-content">
             <h3>من نحن؟</h3>
             <p>نادي أصيل للرياضات الإلكترونية (ASEEL EC) هو نادٍ متخصص في مجال الرياضات الإلكترونية، تأسس في 23 نوفمبر 2026 على يد همام علي حماد بله، انطلاقاً من رؤية تهدف إلى بناء كيان رياضي إلكتروني يجمع بين الشغف والمنافسة والاحترافية.</p>
             <p>يبدأ النادي رحلته من خلال رياضتي الشطرنج وكرة القدم الإلكترونية (eFootball)، واضعاً نصب عينيه التوسع مستقبلاً ليشمل المزيد من الألعاب والرياضات الإلكترونية، بما يتماشى مع تطور هذا المجال واتساع مجتمعه حول العالم.</p>
-
             <h3>رؤيتنا</h3>
             <p>أن يصبح نادي أصيل أحد الأسماء الرائدة في عالم الرياضات الإلكترونية، وأن يبني حضوراً تنافسياً مميزاً، ويقدم نموذجاً يحتذى به في الإدارة والتطوير والاحترافية.</p>
-
             <h3>رسالتنا</h3>
             <p>توفير بيئة رياضية إلكترونية محفزة تجمع المواهب واللاعبين، وتدعم تطورهم، وتمنحهم الفرصة للمنافسة وإبراز قدراتهم، مع ترسيخ ثقافة التنافس النزيه والعمل الجماعي.</p>
-
             <h3>أهدافنا</h3>
             <ul>
                 <li>تحقيق الريادة والتميز في مجال الرياضات الإلكترونية.</li>
@@ -111,7 +141,6 @@
                 <li>تعزيز ثقافة الاحترافية والانضباط والروح الرياضية.</li>
                 <li>بناء شراكات وعلاقات استراتيجية مع الجهات الفاعلة في صناعة الرياضات الإلكترونية.</li>
             </ul>
-
             <h3>قيمنا</h3>
             <p>نؤمن بأن النجاح لا يتحقق بالموهبة وحدها، بل يقوم على مجموعة من القيم التي تشكل أساس هويتنا:</p>
             <ul>
@@ -121,15 +150,13 @@
                 <li><strong>التطور:</strong> نؤمن بالتعلم المستمر ومواكبة تطورات عالم الألعاب.</li>
                 <li><strong>العمل الجماعي:</strong> نرى أن الإنجازات الكبرى تبدأ بفريق متماسك.</li>
             </ul>
-
             <h3>طموح بلا حدود</h3>
             <p>في أصيل، نؤمن بأن الرياضات الإلكترونية أكثر من مجرد ألعاب؛ إنها مساحة للتنافس والإبداع وبناء العلاقات وصناعة الإنجازات.</p>
             <p>نبدأ اليوم بخطواتنا الأولى، لكن طموحنا يتجاوز حدود البداية. نسعى إلى بناء نادٍ قادر على التطور والاستمرار وترك بصمة حقيقية في عالم الرياضات الإلكترونية.</p>
         </div>
-        
         <button class="btn-back" style="margin-top: 20px;" onclick="navigateTo('screen-success')">رجوع</button>
     </div>
 
     <script src="script.js"></script>
 </body>
-        </html>
+                </html>
