@@ -1,6 +1,6 @@
 /* إعدادات عامة */
 :root {
-    --primary-green: #317F45; /* كود الهوية الخاص بك */
+    --primary-green: #317F45; 
     --bg-color: #0a0a0a;
     --card-bg: #151515;
     --text-main: #ffffff;
@@ -25,9 +25,9 @@ body {
     overflow-x: hidden;
 }
 
-/* إدارة الشاشات (إظهار وإخفاء) */
+/* إدارة الشاشات */
 .screen {
-    display: none; /* مخفية في البداية */
+    display: none; 
     width: 100%;
     max-width: 500px;
     background-color: var(--card-bg);
@@ -40,16 +40,21 @@ body {
 }
 
 .screen.active {
-    display: block !important; /* الشاشة النشطة فقط هي اللي تظهر */
+    display: block !important;
 }
 
-/* حركة الظهور */
+/* استثناء صفحة "عن النادي" */
+.about-screen.active {
+    display: flex !important;
+    flex-direction: column;
+    max-height: 90vh; 
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* تنسيقات النصوص واللوجو */
 .logo {
     width: 100%;
     max-width: 220px;
@@ -73,7 +78,6 @@ h2 { font-size: 22px; color: var(--primary-green); }
     letter-spacing: 0.5px;
 }
 
-/* الأزرار */
 button {
     font-family: 'Cairo', sans-serif;
     cursor: pointer;
@@ -97,7 +101,6 @@ button {
     transform: translateY(-2px);
 }
 
-/* أزرار الألعاب */
 .buttons-group {
     display: flex;
     flex-direction: column;
@@ -132,7 +135,6 @@ button {
     background-color: #1f2a22;
 }
 
-/* الاستمارات */
 form {
     text-align: right;
     margin-top: 20px;
@@ -146,7 +148,8 @@ label {
     color: #ddd;
 }
 
-input {
+/* ضفنا select مع input عشان القائمة المنسدلة */
+input, select {
     width: 100%;
     padding: 12px 15px;
     margin-bottom: 20px;
@@ -159,7 +162,7 @@ input {
     transition: border-color 0.3s;
 }
 
-input:focus {
+input:focus, select:focus {
     border-color: var(--primary-green);
     outline: none;
     box-shadow: 0 0 8px rgba(49, 127, 69, 0.3);
@@ -177,7 +180,6 @@ input:focus {
 
 .btn-submit:hover { background-color: #245e32; }
 
-/* زرار الرجوع */
 .btn-back {
     background: transparent;
     color: var(--text-muted);
@@ -191,7 +193,6 @@ input:focus {
 
 .btn-back:hover { color: white; }
 
-/* صفحة النجاح */
 .success-icon {
     width: 70px;
     height: 70px;
@@ -207,12 +208,6 @@ input:focus {
 }
 
 /* تنسيقات صفحة "عن النادي" */
-.about-screen.active {
-    display: flex !important; /* عشان نضمن إنها تظهر بس لما تكون نشطة */
-    flex-direction: column;
-    max-height: 90vh; 
-}
-
 .about-content {
     text-align: right;
     overflow-y: auto; 
@@ -242,9 +237,5 @@ input:focus {
     margin-bottom: 8px;
 }
 
-.about-content ul {
-    padding-right: 20px;
-    margin-bottom: 15px;
-}
-
+.about-content ul { padding-right: 20px; margin-bottom: 15px; }
 .about-content strong { color: #fff; }
